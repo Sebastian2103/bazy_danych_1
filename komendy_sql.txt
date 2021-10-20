@@ -1,0 +1,7 @@
+create table osoba (id int);
+create table postac (id_postaci int PRIMARY KEY AUTO_INCREMENT, nazwa varchar(40), rodzaj SET('wiking','ptak','kobieta'), data_ur date, wiek int);
+INSERT INTO postac VALUES
+    (default, 'Bjorn', '1', '1989-12-10','28'),
+    (default, 'Drozd', '1', '1999-08-21','14'),
+    (default, 'Tesciowa', '1', '1967-01-01', '64');
+update postac SET wiek=88 WHERE nazwisko='tesciowa';
