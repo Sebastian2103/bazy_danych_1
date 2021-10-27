@@ -1,3 +1,5 @@
+ZADANIE 1
+
 create table osoba (id int);
 create table postac (id_postaci int PRIMARY KEY AUTO_INCREMENT, nazwa varchar(40), rodzaj SET('wiking','ptak','kobieta'), data_ur date, wiek int UNSIGNED);
 INSERT INTO postac VALUES
@@ -6,7 +8,7 @@ INSERT INTO postac VALUES
     (default, 'Tesciowa', '3', '1967-01-01', '64');
 update postac SET wiek='88' WHERE nazwa='tesciowa';
 
-
+ZADANIE 2
 CREATE table walizka (id_walizka int AUTO_INCREMENT Primary KEY, pojemnosc int UNSIGNED, kolor SET('różowy', 'czerwony','teczowy','zolty'),id_wlasciciela int,FOREIGN KEY (id_wlasciciela) REFERENCES postac(id_postaci) ON DELETE CASCADE);
 ALTER TABLE walizka
 ALTER kolor SET DEFAULT 'rowy';
@@ -15,17 +17,17 @@ INSERT INTO walizka VALUES
 (default,'40', default, '3');
 
 
-
+ZADANIE 3
 CREATE TABLE izba(adres_budynku int, nazwa_izby varchar(60), PRIMARY KEY(adres_budynku,nazwa_izby), metraz int UNSIGNED, wlasciciel int ,FOREIGN KEY (wlasciciel) REFERENCES postac(id_postaci) ON DELETE SET NULL);
 ALTER TABLE izba ADD COLUMN kolor SET('rowy','czarny','zolty') AFTER metraz;
 ALTER TABLE izba ALTER kolor SET DEFAULT 'czarny';
 INSERT INTO izba VALUES('1','spizarnia','140',default,'1');
 
-
+ZADANIE 4
 CREATE table przetwory (id_przetowru int PRIMARY KEY AUTO_INCREMENT, rok_produkcji int(4) DEFAULT'1654', id_wykonawcy int, FOREIGN KEY (id_wykonawcy) REFERENCES postac(id_postaci), zawartosc varchar(255), dodatek varchar(255) DEFAULT'papryczka chilli', id_konsumenta int, FOREIGN KEY (id_konsumenta) REFERENCES postac(id_postaci));
 INSERT Into przetwory VALUES (default,default,'1','bigos z papryczka chilli',default,'3');
 
-
+ZADANIE 5
 INSERT INTO postac VALUES
     (default, 'Ragnar', '1', '1899-12-10','123'),
     (default, 'Staszek', '2', '1996-08-21','13'),
@@ -57,3 +59,4 @@ UPDATE postac set statek='moc' where nazwa='Torvi';
 DELETE FROM izba where nazwa_izby='spizarnia';
 
 DROP TABLE izba;
+
