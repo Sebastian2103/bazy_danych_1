@@ -28,7 +28,19 @@ ALTER TABLE postac ADD CONSTRAINT chk_wiek CHECK (wiek>=1000);
 
 ZADANIE 4
 
+ALTER TABLE postac MODIFY rodzaj ENUM ('wiking','ptak','kobieta','syrena','wąż');
+INSERT into postac VALUES
+('10','LOKO','5','1711-12-01','316','','','32141212341');
 CREATE TABLE marynarz like postac;
 LUB
 CREATE TABLE marynarz SELECT * from postac;
 INSERT INTO marynarz select * from postac where statek is not null;
+
+ZADANIE 5
+UPDATE postac SET statek=NULL;
+DELETE FROM postac WHERE pesel = '12345678917';
+DELETE FROM statek WHERE nazwa='moc' AND nazwa='gniew';
+DROP TABLE statek;
+CREATE TABLE zwierz (id int AUTO_INCREMENT PRIMARY KEY,nazwa varchar(100),wiek int);
+INSERT INTO zwierz VALUES
+('','drozd','14');
